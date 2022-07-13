@@ -15,7 +15,7 @@ registerDrivers(storage);
 
 export default storage;
 
-function getStorageConfig(): StorageManagerConfig {
+export function getStorageConfig(): StorageManagerConfig {
 	const config: StorageManagerConfig = {
 		disks: {},
 	};

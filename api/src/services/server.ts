@@ -11,7 +11,7 @@ import getDatabase, { hasDatabaseConnection } from '../database';
 import env from '../env';
 import logger from '../logger';
 import { rateLimiter } from '../middleware/rate-limiter';
-import storage from '../storage';
+import storage, { getStorageConfig } from '../storage';
 import { AbstractServiceOptions } from '../types';
 import { Accountability, SchemaOverview } from '@directus/shared/types';
 import { toArray } from '@directus/shared/utils';
@@ -49,6 +49,11 @@ export class ServerService {
 		});
 
 		info.project = projectInfo;
+		info.storage = getStorageConfig();
+		for (const disk of Object.values(info.storage.disks) as Array<{ driver: string; config: any }>) {
+			// Remove config property as it is storing potentially sensistive information.
+			delete disk.config;
+		}
 
 		if (this.accountability?.admin === true) {
 			const osType = os.type() === 'Darwin' ? 'macOS' : os.type();

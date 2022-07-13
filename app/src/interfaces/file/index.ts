@@ -18,9 +18,21 @@ export default defineInterface({
 			name: '$t:interfaces.system-folder.folder',
 			type: 'uuid',
 			meta: {
-				width: 'full',
+				width: 'half',
 				interface: 'system-folder',
 				note: '$t:interfaces.system-folder.field_hint',
+			},
+			schema: {
+				default_value: undefined,
+			},
+		},
+		{
+			field: 'storage',
+			name: '$t:fields.directus_files.storage',
+			type: 'string',
+			meta: {
+				width: 'half',
+				interface: 'system-storage',
 			},
 			schema: {
 				default_value: undefined,

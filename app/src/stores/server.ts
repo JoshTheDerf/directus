@@ -31,6 +31,7 @@ type Info = {
 		uptime: number;
 		totalmem: number;
 	};
+	storage?: object;
 };
 
 type Auth = {
@@ -44,6 +45,7 @@ export const useServerStore = defineStore('serverStore', () => {
 		directus: undefined,
 		node: undefined,
 		os: undefined,
+		storage: undefined,
 	});
 
 	const auth = reactive<Auth>({
@@ -73,6 +75,7 @@ export const useServerStore = defineStore('serverStore', () => {
 		info.directus = serverInfoResponse.data.data?.directus;
 		info.node = serverInfoResponse.data.data?.node;
 		info.os = serverInfoResponse.data.data?.os;
+		info.storage = serverInfoResponse.data.data?.storage;
 
 		auth.providers = authResponse.data.data;
 		auth.disableDefault = authResponse.data.disableDefault;
@@ -85,6 +88,7 @@ export const useServerStore = defineStore('serverStore', () => {
 		info.directus = undefined;
 		info.node = undefined;
 		info.os = undefined;
+		info.storage = undefined;
 
 		auth.providers = [];
 		auth.disableDefault = false;

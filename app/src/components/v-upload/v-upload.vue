@@ -124,6 +124,10 @@ export default defineComponent({
 			type: String,
 			default: undefined,
 		},
+		storage: {
+			type: String,
+			default: undefined,
+		},
 	},
 	emits: ['input'],
 	setup(props, { emit }) {
@@ -173,9 +177,14 @@ export default defineComponent({
 				progress.value = 0;
 
 				const folderPreset: { folder?: string } = {};
+				const storagePreset: { storage?: string } = {};
 
 				if (props.folder) {
 					folderPreset.folder = props.folder;
+				}
+
+				if (props.storage) {
+					storagePreset.storage = props.storage;
 				}
 
 				try {
@@ -190,6 +199,7 @@ export default defineComponent({
 							preset: {
 								...props.preset,
 								...folderPreset,
+								...storagePreset,
 							},
 						});
 
@@ -204,6 +214,7 @@ export default defineComponent({
 							preset: {
 								...props.preset,
 								...folderPreset,
+								...storagePreset,
 							},
 						});
 
