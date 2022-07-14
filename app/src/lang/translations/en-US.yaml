@@ -1606,6 +1606,12 @@ interfaces:
     field_hint: Folder for uploaded files. Does not affect existing files.
     root_name: File Library Root
     system_default: System Defaults
+  system-storage:
+    storage: Storage Provider
+    description: Select a storage provider
+    select_storage: Select a storage provider
+    field_hint: Storage provider for uploaded files. Does not affect existing files.
+    system_default: System Default
   select-radio:
     radio-buttons: Radio Buttons
     description: Select one of multiple choices

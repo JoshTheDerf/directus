@@ -112,7 +112,7 @@
 			<v-card>
 				<v-card-title>{{ t('upload_file') }}</v-card-title>
 				<v-card-text>
-					<v-upload multiple from-url :folder="folder" @input="onUpload" />
+					<v-upload multiple from-url :folder="folder" :storage="storage" @input="onUpload" />
 				</v-card-text>
 				<v-card-actions>
 					<v-button @click="showUpload = false">{{ t('done') }}</v-button>
@@ -148,6 +148,7 @@ const props = withDefaults(
 		enableCreate?: boolean;
 		enableSelect?: boolean;
 		folder?: string;
+		storage?: string;
 		limit?: number;
 	}>(),
 	{
@@ -157,6 +158,7 @@ const props = withDefaults(
 		enableCreate: true,
 		enableSelect: true,
 		folder: undefined,
+		storage: undefined,
 		limit: 15,
 	}
 );

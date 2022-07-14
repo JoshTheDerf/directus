@@ -62,7 +62,7 @@
 
 			<file-lightbox :id="image.id" v-model="lightboxActive" />
 		</div>
-		<v-upload v-else from-library from-url :folder="folder" @input="update($event.id)" />
+		<v-upload v-else from-library from-url :folder="folder" :storage="storage" @input="update($event.id)" />
 	</div>
 </template>
 
@@ -83,6 +83,7 @@ const props = withDefaults(
 		value?: string | Record<string, any> | null;
 		disabled?: boolean;
 		folder?: string;
+		storage?: string;
 		collection: string;
 		field: string;
 		width: string;
@@ -93,6 +94,7 @@ const props = withDefaults(
 		disabled: false,
 		crop: true,
 		folder: undefined,
+		storage: undefined,
 	}
 );
 

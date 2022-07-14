@@ -28,11 +28,12 @@ export default defineInterface({
 		},
 		{
 			field: 'storage',
-			name: '$t:fields.directus_files.storage',
+			name: '$t:interfaces.system-storage.storage',
 			type: 'string',
 			meta: {
 				width: 'half',
 				interface: 'system-storage',
+				note: '$t:interfaces.system-storage.field_hint',
 			},
 			schema: {
 				default_value: undefined,

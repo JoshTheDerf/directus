@@ -10,5 +10,7 @@ export default defineInterface({
 	types: ['string'],
 	system: true,
 	recommendedDisplays: ['raw'],
-	options: {},
+	options: {
+		default: 'local',
+	},
 });

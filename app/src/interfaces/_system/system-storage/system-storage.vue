@@ -3,7 +3,7 @@
 		:model-value="value"
 		:disabled="disabled"
 		:items="items"
-		:placeholder="t('select_storage')"
+		:placeholder="t('interfaces.system-storage.select_storage')"
 		@update:model-value="$emit('input', $event)"
 	/>
 </template>
@@ -31,14 +31,17 @@ export default defineComponent({
 		const serverStore = useServerStore();
 
 		const storage = serverStore.info.storage as {
-			disks: Record<string, { location: string; config: { driver: string } }>;
+			disks: Record<string, { driver: string }>;
 		};
 
 		const items = computed(() => {
-			return Object.entries(storage.disks).map(([location, config]) => ({
-				text: `${location} - (${config.driver})`,
-				value: location,
-			}));
+			return [
+				{ text: t('interfaces.system-storage.system_default'), value: null },
+				...Object.entries(storage.disks).map(([location, config]) => ({
+					text: `${location} (${config.driver})`,
+					value: location,
+				})),
+			];
 		});
 
 		return { items, t };

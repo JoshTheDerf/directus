@@ -27,6 +27,19 @@ export default defineInterface({
 			},
 		},
 		{
+			field: 'storage',
+			name: '$t:interfaces.system-storage.storage',
+			type: 'string',
+			meta: {
+				width: 'half',
+				interface: 'system-storage',
+				note: '$t:interfaces.system-storage.field_hint',
+			},
+			schema: {
+				default_value: undefined,
+			},
+		},
+		{
 			field: 'crop',
 			name: '$t:interfaces.file-image.crop',
 			type: 'boolean',
